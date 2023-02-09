@@ -17,8 +17,10 @@ let titleComponentObj = {
                 }
     },
     methods: {
-        select(){
-            this.var1= !this.var1 
+        seleccionado(){
+            this.var1 = !this.var1 
+            this.$emit('hi-there')
+            this.$emit('seleccionado', this.name)
       
         }
     }
@@ -31,7 +33,7 @@ let titlePickerObj = {
      components: { titleComponent : titleComponentObj},
             data() {
             return {
-
+                selectedTitle: null,
                 familyMembers: [
                     {
                         id:1,
@@ -72,7 +74,14 @@ let titlePickerObj = {
                 
                 ]
             }
-        }
+    },
+    methods: {
+       ConocerItemSeleccionado(familyMember) {
+            this.selectedTitle = familyMember
+         
+                }
+                
+            }
 
 }
 
