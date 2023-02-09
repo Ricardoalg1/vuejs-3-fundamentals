@@ -35,7 +35,9 @@
 
     <script type="text/x-template " id="title-picker-template">
 
+      <!-- v-on conecta el metodo click seleccionado hijo con el metodo padre  -->
         <title-Component
+      :selected="familyMember.name  == selectedTitle"
       v-on:seleccionado="ConocerItemSeleccionado"
       v-for="(familyMember,index) in familyMembers " 
       :name="familyMember.name"
@@ -50,7 +52,7 @@
 
   <script type="text/x-template " id="title-template" >
 
-    <div class="title-component-container" :class="{'active-title':var1}" @click="seleccionado">
+    <div class="title-component-container" :class="{'active-title':selected}" @click="seleccionado">
 
     <div class="title-component-title">Family Card N. {{id}}</div>
     <div class="title-component-avatar">

@@ -8,17 +8,18 @@ let titleComponentObj = {
                 gender: { type: String, default: 'Male' },
                 hash: { type: String, default: '1' },
                 scr: '',
+                selected:{type: Boolean, default: false}
                 
             
     },
-    data(){
-             return{
-             var1  :false 
-                }
-    },
+    // data(){
+    //          return{
+    //          var1  :false 
+    //             }
+    // },
     methods: {
         seleccionado(){
-            this.var1 = !this.var1 
+            // this.var1 = !this.var1 
             this.$emit('hi-there')
             this.$emit('seleccionado', this.name)
       
@@ -78,7 +79,6 @@ let titlePickerObj = {
     methods: {
        ConocerItemSeleccionado(familyMember) {
             this.selectedTitle = familyMember
-         
                 }
                 
             }
