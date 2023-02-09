@@ -13,15 +13,10 @@ let titleComponentObj = {
             }
 }
 
+let titlePickerObj = {
 
-const app = Vue.createApp({
-
-
-})
-    .component('title-picker', {
-        
-        template: '#title-picker-template',
-        components: { titleComponent : titleComponentObj},
+    template: '#title-picker-template',
+     components: { titleComponent : titleComponentObj},
             data() {
             return {
 
@@ -66,13 +61,12 @@ const app = Vue.createApp({
                 ]
             }
         }
-        
-        })
-    
-        
 
-        .component('click-counter', {
-            template: '#click-counter-template',
+}
+
+let clickCounterObj = {
+
+      template: '#click-counter-template',
            
             data() {
                 return {
@@ -84,7 +78,18 @@ const app = Vue.createApp({
                     this.Count++
                 }
             }
-            
-        })
+
+}
+
+
+const app = Vue.createApp({
+
+    components: {
+        'title-picker': titlePickerObj,
+        'click-counter': clickCounterObj
+    }
+
+})
+  
         
 .mount('#app')
