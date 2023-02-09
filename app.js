@@ -1,6 +1,5 @@
 let titleComponentObj = {
      template: '#title-template',
-
             props: {
         
                 id: {type:Number, required:true, default:00},
@@ -8,9 +7,22 @@ let titleComponentObj = {
                 age: { type: Number, default: 30 },
                 gender: { type: String, default: 'Male' },
                 hash: { type: String, default: '1' },
-                scr:''
+                scr: '',
+                
             
-            }
+    },
+    data(){
+             return{
+             var1  :false 
+                }
+    },
+    methods: {
+        select(){
+            this.var1= !this.var1 
+      
+        }
+    }
+    
 }
 
 let titlePickerObj = {

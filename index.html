@@ -36,6 +36,7 @@
     <script type="text/x-template " id="title-picker-template">
 
         <title-Component
+     
       v-for="(familyMember,index) in familyMembers " 
       :name="familyMember.name"
       :age="familyMember.age"
@@ -47,9 +48,10 @@
 
     </script>
 
-  <script type="text/x-template " id="title-template">
+  <script type="text/x-template " id="title-template" >
 
-    <div class="title-component-container">
+    <div class="title-component-container" :class="{'active-title':var1}" @click="select">
+
     <div class="title-component-title">Family Card N. {{id}}</div>
     <div class="title-component-avatar">
     <!-- <img src="`https://www.gravatar.com/avatar/{{hash}}`"> -->
@@ -96,6 +98,13 @@
     max-width: 80%;
     max-height: 250px;
   
+
+  }
+
+  .active-title{
+
+    background-color: rgb(247, 49, 49);
+     border: 5px solid rgb(74, 246, 100);
 
   }
 
