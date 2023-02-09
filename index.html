@@ -20,16 +20,58 @@
   <click-counter></click-counter>
   <click-counter></click-counter>
 
+  <title-component name="The hacker"> </title-component>
+  <title-component name="The Wizard"> </title-component>
+  <title-component name="The Knight"> </title-component>
+
+  <title-component v-for="name in names " :name="name"> </title-component>
+
+
+
     </div>
 
 
 <script type="text/x-template " id="click-counter-template">
 <button class="btn btn-primary" @click=" increment">Count is: {{Count}}</button>
-  </script>
+</script>
+
+<script type="text/x-template " id="title-template">
+
+  <div class="title-component"> {{name}}</div>
+
+
+  </div>
+
+</script>
 
 
     <script src="https://unpkg.com/vue@3"></script>
     <script src="app.js"></script>
+
+</body>
+
+</html>
+
+<style type="text/css">
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+  .title-component {
+    margin: 5%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: rgb(2, 117, 152);
+    text-align: center;
+    display: flexbox;
+    background-color: rgb(218, 218, 218);
+  }
+
+
+  </style>
+
+
+
 
      
   <!-- <div id="shopping-list">
@@ -112,6 +154,3 @@
   </script> -->
 
   
-</body>
-
-</html>
