@@ -19,17 +19,22 @@
   <click-counter></click-counter>
   <click-counter></click-counter>
   <click-counter></click-counter>
-
+<!-- 
   <title-component name="The hacker"> </title-component>
   <title-component name="The Wizard"> </title-component>
-  <title-component name="The Knight"> </title-component>
+  <title-component name="The Knight"> </title-component> -->
 
-  <title-component v-for="name in names " :name="name"> </title-component>
+  <title-component
+   v-for="(familyMember,index) in familyMembers " 
+   :name="familyMember.name"
+   :age="familyMember.age"
+   :gender = "familyMember.gender"
 
+   /> 
+  
+   </title-component>
 
-
-    </div>
-
+  </div>
 
 <script type="text/x-template " id="click-counter-template">
 <button class="btn btn-primary" @click=" increment">Count is: {{Count}}</button>
@@ -37,10 +42,14 @@
 
 <script type="text/x-template " id="title-template">
 
-  <div class="title-component"> {{name}}</div>
+  <div class="title-component-container">
 
-
+  <div class="title-component-name"> Name: {{name}}</div>
+   <div class="title-component-info"> Age: {{age}}</div> 
+    <div class="title-component-info"> Gender: {{gender}}</div> 
   </div>
+
+
 
 </script>
 
@@ -52,20 +61,36 @@
 
 </html>
 
+
 <style type="text/css">
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
   }
-  .title-component {
+  .title-component-container{
+    background-color: rgb(204, 202, 202);
+
+  }
+  .title-component-name  {
     margin: 5%;
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
     color: rgb(2, 117, 152);
     text-align: center;
     display: flexbox;
-    background-color: rgb(218, 218, 218);
+  
   }
+
+   .title-component-info  {
+    margin: 5%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: rgb(52, 7, 215);
+    text-align: center;
+    display: flexbox;
+    
+  }
+
 
 
   </style>
