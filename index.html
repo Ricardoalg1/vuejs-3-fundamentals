@@ -17,22 +17,15 @@
         <h1>Vue.js Components Fundamentals</h1>
 
   <click-counter></click-counter>
-  <click-counter></click-counter>
-  <click-counter></click-counter>
+
+
 <!-- 
   <title-component name="The hacker"> </title-component>
   <title-component name="The Wizard"> </title-component>
   <title-component name="The Knight"> </title-component> -->
 
-  <title-component
-   v-for="(familyMember,index) in familyMembers " 
-   :name="familyMember.name"
-   :age="familyMember.age"
-   :gender = "familyMember.gender"
+  <title-picker></title-picker>
 
-   /> 
-  
-   </title-component>
 
   </div>
 
@@ -40,21 +33,43 @@
 <button class="btn btn-primary" @click=" increment">Count is: {{Count}}</button>
 </script>
 
-<script type="text/x-template " id="title-template">
+    <script type="text/x-template " id="title-picker-template">
 
-  <div class="title-component-container">
+        <title-Component
+      v-for="(familyMember,index) in familyMembers " 
+      :name="familyMember.name"
+      :age="familyMember.age"
+      :id="familyMember.id"
+      :gender="familyMember.gender"
+      :hash="familyMember.hash" > 
+      </title-Component>
 
-  <div class="title-component-name"> Name: {{name}}</div>
-   <div class="title-component-info"> Age: {{age}}</div> 
-    <div class="title-component-info"> Gender: {{gender}}</div> 
-  </div>
+
+    </script>
+
+  <script type="text/x-template " id="title-template">
+
+    <div class="title-component-container">
+    <div class="title-component-title">Family Card N. {{id}}</div>
+    <div class="title-component-avatar">
+    <!-- <img src="`https://www.gravatar.com/avatar/{{hash}}`"> -->
+
+        image HASH:  {{hash}}
+    </div>
+
+    <div class="title-component-name"> Name: {{name}}</div>
+    <div class="title-component-age"> Age: {{age}}</div> 
+    <div class="title-component-gender"> Gender: {{gender}}</div> 
+    <div class="title-component-age"> Age: {{age}}</div> 
+
+    </div>
 
 
-
-</script>
+  </script>
 
 
     <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
 
 </body>
@@ -68,28 +83,73 @@
     font-size: 14px;
   }
   .title-component-container{
-    background-color: rgb(204, 202, 202);
-
-  }
-  .title-component-name  {
-    margin: 5%;
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
-    color: rgb(2, 117, 152);
+    background-color: rgb(211, 211, 211);
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
     text-align: center;
-    display: flexbox;
+    margin: 5%;
+    max-width: 80%;
+    max-height: 250px;
+  
+
+  }
+
+    .title-component-title  {
+    text-align: left;
+    font-weight: bold;
+    width: 100%;
+    background-color: rgb(224, 243, 244);
+    margin: 0;
+    color: rgb(2, 117, 152);
+    padding: 0%;
+    
   
   }
 
-   .title-component-info  {
-    margin: 5%;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: large;
-    color: rgb(52, 7, 215);
-    text-align: center;
-    display: flexbox;
+
+  .title-component-name  {
+    width: 100%;
+    background-color: rgb(192, 229, 231);
+    margin: 0;
+    color: rgb(2, 117, 152);
+    padding: 0%;
     
+  
   }
+   .title-component-age  {
+     width: 100%;
+    background-color: rgb(213, 227, 196);
+    margin: 0;
+    color: rgb(2, 117, 152);
+    padding: 0%;
+    
+  
+  }
+
+   .title-component-gender  {
+     width: 100%;
+    margin: 0;
+    color: rgb(52, 7, 215);
+    max-height: fit-content;
+    padding: 0%;
+    background-color: rgb(203, 168, 203);
+   
+  }
+     .title-component-avatar  {
+     width: 100%;
+    margin: 0;
+    
+    max-height: fit-content;
+    padding: 0%;
+    background-color: rgb(205, 205, 182);
+   
+  }
+
 
 
 
